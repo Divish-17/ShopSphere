@@ -119,7 +119,7 @@ function validateInput(input) {
     if (!input.validity.valid) {
         let message = input.validationMessage;
         if (input.validity.valueMissing) {
-            message = 'This field is required.';
+            message = 'Please fill the input field.';
         } else if (input.validity.typeMismatch && input.type === 'email') {
             message = 'Please enter a valid email address.';
         } else if (input.pattern && input.validity.patternMismatch) {
