@@ -66,6 +66,8 @@ const ordersIcon = document.getElementById('orders-icon');
 const mobileOrdersIcon = document.getElementById('mobile-orders-icon');
 const mobileOrdersLink = document.querySelector('.mobile-orders-link');
 const ordersList = document.getElementById('orders-list');
+const mobileAuthIcon = document.getElementById('mobile-auth-icon');
+const mobileAuthLink = document.querySelector('.mobile-auth-link');
 
 // User specific
 const userIcon = document.getElementById('user-icon');
@@ -101,11 +103,15 @@ function updateAuthUI() {
         userIcon.title = "Logout " + currentUser.name;
         ordersIcon.style.display = 'inline-flex'; // Show orders icon
         if(mobileOrdersLink) mobileOrdersLink.style.display = 'block';
+        if(mobileAuthIcon) mobileAuthIcon.innerHTML = 'Logout';
+        if(mobileAuthLink) mobileAuthLink.style.display = 'block';
     } else {
         userIcon.innerHTML = `<i class="fas fa-user"></i>`;
         userIcon.title = "Login";
         ordersIcon.style.display = 'none'; // Hide orders icon
         if(mobileOrdersLink) mobileOrdersLink.style.display = 'none';
+        if(mobileAuthIcon) mobileAuthIcon.innerHTML = 'Login';
+        if(mobileAuthLink) mobileAuthLink.style.display = 'block';
     }
 }
 
@@ -319,19 +325,35 @@ function setupEventListeners() {
         });
     }
     
+    // Shared logout logic
+    function handleLogout() {
+        currentUser = null;
+        localStorage.removeItem('currentUser');
+        updateAuthUI();
+        showToast("Logged out successfully");
+        updateCartUI();
+    }
+
     // Auth Modal handling
     userIcon.addEventListener('click', () => {
         if (currentUser) {
-            // Logout logic
-            currentUser = null;
-            localStorage.removeItem('currentUser');
-            updateAuthUI();
-            showToast("Logged out successfully");
-            updateCartUI();
+            handleLogout();
         } else {
             openModal(authModal);
         }
     });
+
+    if(mobileAuthIcon) {
+        mobileAuthIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            navLinksContainer.classList.remove('active');
+            if (currentUser) {
+                handleLogout();
+            } else {
+                openModal(authModal);
+            }
+        });
+    }
 
     proceedToCheckoutBtn.addEventListener('click', () => {
         closeModal(cartModal);
