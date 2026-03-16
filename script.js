@@ -88,6 +88,67 @@ const paypalDetails = document.getElementById('paypal-details');
 const codDetails = document.getElementById('cod-details');
 const payBtn = document.getElementById('pay-btn');
 
+// Custom Validation Logic
+function showValidationError(input, message) {
+    input.classList.add('invalid');
+    let errorDiv = input.nextElementSibling;
+    if (!errorDiv || !errorDiv.classList.contains('error-message')) {
+        errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        input.parentNode.insertBefore(errorDiv, input.nextSibling);
+    }
+    errorDiv.textContent = message;
+    errorDiv.style.display = 'block';
+}
+
+function clearValidationError(input) {
+    input.classList.remove('invalid');
+    let errorDiv = input.nextElementSibling;
+    if (errorDiv && errorDiv.classList.contains('error-message')) {
+        errorDiv.style.display = 'none';
+        errorDiv.textContent = '';
+    }
+}
+
+function validateInput(input) {
+    if (input.disabled) {
+        clearValidationError(input);
+        return true;
+    }
+    
+    if (!input.validity.valid) {
+        let message = input.validationMessage;
+        if (input.validity.valueMissing) {
+            message = 'This field is required.';
+        } else if (input.validity.typeMismatch && input.type === 'email') {
+            message = 'Please enter a valid email address.';
+        } else if (input.pattern && input.validity.patternMismatch) {
+            message = input.title || 'Please match the format requested.';
+        } else if (input.validity.tooShort) {
+            message = `Minimum length is ${input.minLength} characters.`;
+        }
+        showValidationError(input, message);
+        return false;
+    } else {
+        clearValidationError(input);
+        return true;
+    }
+}
+
+function setupFormValidation(form) {
+    const inputs = form.querySelectorAll('input, select');
+    inputs.forEach(input => {
+        input.addEventListener('input', () => {
+            if (input.classList.contains('invalid')) {
+                validateInput(input);
+            }
+        });
+        input.addEventListener('blur', () => {
+            validateInput(input);
+        });
+    });
+}
+
 // Initialization
 function init() {
     updateAuthUI();
@@ -95,6 +156,9 @@ function init() {
     renderProducts(products.accessories, accessoriesGrid);
     updateCartUI(); 
     setupEventListeners();
+    
+    setupFormValidation(authForm);
+    setupFormValidation(paymentForm);
 }
 
 function updateAuthUI() {
@@ -405,6 +469,13 @@ function setupEventListeners() {
     // Authentication Forms Prevent Default
     authForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        
+        let isValid = true;
+        authForm.querySelectorAll('input:not([disabled])').forEach(input => {
+            if (!validateInput(input)) isValid = false;
+        });
+        if (!isValid) return;
+
         const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value.trim();
         
@@ -449,23 +520,41 @@ function setupEventListeners() {
             cardDetails.style.display = 'block';
             paypalDetails.style.display = 'none';
             codDetails.style.display = 'none';
-            inputs.forEach(input => input.setAttribute('required', 'true'));
+            inputs.forEach(input => {
+                input.setAttribute('required', 'true');
+                input.disabled = false;
+            });
         } else if (method === 'paypal') {
             cardDetails.style.display = 'none';
             paypalDetails.style.display = 'block';
             codDetails.style.display = 'none';
-            inputs.forEach(input => input.removeAttribute('required'));
+            inputs.forEach(input => {
+                input.removeAttribute('required');
+                input.value = '';
+                input.disabled = true; // Prevents validation on hidden fields
+            });
         } else if (method === 'cod') {
             cardDetails.style.display = 'none';
             paypalDetails.style.display = 'none';
             codDetails.style.display = 'block';
-            inputs.forEach(input => input.removeAttribute('required'));
+            inputs.forEach(input => {
+                input.removeAttribute('required');
+                input.value = '';
+                input.disabled = true;
+            });
         }
     });
 
     // Payment Form Submission
     paymentForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        
+        let isValid = true;
+        paymentForm.querySelectorAll('input:not([disabled]), select:not([disabled])').forEach(input => {
+            if (!validateInput(input)) isValid = false;
+        });
+        if (!isValid) return;
+
         const btn = payBtn;
         const originalText = btn.textContent;
         const method = paymentMethodSelect.value;
