@@ -900,13 +900,19 @@ img {
 .form-group select {
     width: 100%;
     padding: 1rem 1.2rem;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid var(--border-dark);
+    background: rgba(255, 255, 255, 0.03); /* Lighter, more premium glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     color: var(--text-primary);
     font-family: inherit;
     font-size: 1rem;
-    transition: var(--transition);
+    transition: all 0.3s ease;
+}
+
+.form-group input:hover,
+.form-group select:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .form-group select {
@@ -946,42 +952,59 @@ img {
     outline: none;
     border-color: var(--primary);
     background: rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 0 4px rgba(203, 166, 247, 0.1);
+    box-shadow: 0 0 0 4px rgba(203, 166, 247, 0.15); /* Stronger premium glow */
+    transform: translateY(-2px); /* Slight lift effect */
 }
 
 .submit-btn {
     width: 100%;
-    margin-top: 1rem;
-    padding: 16px;
-    background: var(--gradient-1);
+    padding: 1rem;
+    background: var(--primary);
     color: var(--bg-dark);
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     font-size: 1.1rem;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(203, 166, 247, 0.2);
     transition: var(--transition);
 }
 
 .submit-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(203, 166, 247, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(203, 166, 247, 0.4);
 }
 
 .auth-switch {
     text-align: center;
-    margin-top: 2rem;
-    font-size: 0.95rem;
+    margin-top: 1.5rem;
     color: var(--text-secondary);
 }
 
 .auth-switch a {
     color: var(--primary);
-    font-weight: 700;
     margin-left: 0.5rem;
 }
 
+/* Custom Form Validation Styles */
+input.invalid, select.invalid {
+    border-color: #ff4d4d !important;
+    box-shadow: 0 0 0 2px rgba(255, 77, 77, 0.1) !important;
+}
+
+.error-message {
+    color: #ff4d4d;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: none;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Checkout specific */
 .form-row {
     display: flex;
     gap: 1rem;
