@@ -19,17 +19,21 @@
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#phones">Phones</a></li>
             <li><a href="#accessories">Accessories</a></li>
+            <li class="mobile-orders-link" style="display: none;"><a href="#" id="mobile-orders-icon">My Orders</a></li>
         </ul>
         <div class="nav-icons">
             <div class="orders-icon" id="orders-icon" style="display: none;" title="My Orders">
                 <i class="fas fa-box-open"></i>
             </div>
-            <div class="cart-icon" id="cart-icon" title="Cart">
+            <div class="cart-icon desktop-cart" id="desktop-cart-icon" title="Cart">
                 <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count">0</span>
+                <span class="cart-count nav-cart-count" style="display: none;">0</span>
             </div>
             <div class="user-icon" id="user-icon" title="Login">
                 <i class="fas fa-user"></i>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </nav>
@@ -38,15 +42,21 @@
         <div class="hero-content">
             <div class="badge"><i class="fas fa-meteor"></i> ShopSphere Exclusive</div>
             <h1>The Ultimate<br><span class="gradient-text">Tech Experience</span></h1>
-            <p>Discover the latest flagship smartphones and premium accessories designed to elevate your everyday digital life.</p>
+            <p>Discover the latest flagship smartphones and premium accessories designed to elevate your everyday
+                digital life.</p>
             <div class="hero-buttons">
-                <button class="cta-btn primary" onclick="document.getElementById('phones').scrollIntoView({behavior: 'smooth'})">Shop Smartphones</button>
-                <button class="cta-btn secondary" onclick="document.getElementById('accessories').scrollIntoView({behavior: 'smooth'})">View Accessories</button>
+                <button class="cta-btn primary"
+                    onclick="document.getElementById('phones').scrollIntoView({behavior: 'smooth'})">Shop
+                    Smartphones</button>
+                <button class="cta-btn secondary"
+                    onclick="document.getElementById('accessories').scrollIntoView({behavior: 'smooth'})">View
+                    Accessories</button>
             </div>
         </div>
         <div class="hero-image-wrapper">
             <div class="blob-bg"></div>
-            <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?q=80&w=1000&auto=format&fit=crop" alt="Premium Smartphone" class="floating-img">
+            <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?q=80&w=1000&auto=format&fit=crop"
+                alt="Premium Smartphone" class="floating-img">
         </div>
     </header>
 
@@ -71,6 +81,12 @@
             </div>
         </section>
     </main>
+
+    <!-- Floating Cart Icon -->
+    <div class="floating-cart mobile-cart" id="mobile-cart-icon" title="Cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count floating-cart-count" style="display: none;">0</span>
+    </div>
 
     <!-- Modals -->
     <!-- Cart Modal -->
@@ -203,7 +219,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>NexTech</h3>
+                <h3>ShopSphere</h3>
                 <p>The premier destination for cutting-edge mobile technology and premium accessories.</p>
             </div>
             <div class="footer-section">
@@ -224,7 +240,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 NexTech. All rights reserved.</p>
+            <p>&copy; 2026 ShopSphere. All rights reserved.</p>
         </div>
     </footer>
 
