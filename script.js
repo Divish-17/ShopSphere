@@ -36,6 +36,8 @@ let isLogin = true;
 // DOM Elements
 const phonesGrid = document.getElementById('phones-grid');
 const accessoriesGrid = document.getElementById('accessories-grid');
+const hamburger = document.getElementById('hamburger');
+const navLinksContainer = document.querySelector('.nav-links');
 
 // Modals
 const cartModal = document.getElementById('cart-modal');
@@ -54,12 +56,15 @@ const closeOrders = document.getElementById('close-orders');
 // Cart specific elements
 const cartItemsContainer = document.getElementById('cart-items');
 const cartTotalElement = document.getElementById('cart-total-price');
-const cartCountElement = document.querySelector('.cart-count');
-const cartIcon = document.getElementById('cart-icon');
+const cartCountElements = document.querySelectorAll('.cart-count');
+const desktopCartIcon = document.getElementById('desktop-cart-icon');
+const mobileCartIcon = document.getElementById('mobile-cart-icon');
 const proceedToCheckoutBtn = document.getElementById('checkout-btn');
 
 // Orders specific elements
 const ordersIcon = document.getElementById('orders-icon');
+const mobileOrdersIcon = document.getElementById('mobile-orders-icon');
+const mobileOrdersLink = document.querySelector('.mobile-orders-link');
 const ordersList = document.getElementById('orders-list');
 
 // User specific
@@ -92,13 +97,15 @@ function init() {
 
 function updateAuthUI() {
     if (currentUser) {
-        userIcon.innerHTML = `<i class="fas fa-sign-out-alt"></i><span style="font-size: 0.8rem; margin-left:5px; font-weight:600;">Logout</span>`;
+        userIcon.innerHTML = `<i class="fas fa-sign-out-alt"></i><span style="font-size: 0.8rem; margin-left:5px; font-weight:600;" class="logout-text">Logout</span>`;
         userIcon.title = "Logout " + currentUser.name;
         ordersIcon.style.display = 'inline-flex'; // Show orders icon
+        if(mobileOrdersLink) mobileOrdersLink.style.display = 'block';
     } else {
         userIcon.innerHTML = `<i class="fas fa-user"></i>`;
         userIcon.title = "Login";
         ordersIcon.style.display = 'none'; // Hide orders icon
+        if(mobileOrdersLink) mobileOrdersLink.style.display = 'none';
     }
 }
 
@@ -163,7 +170,10 @@ function updateCartUI() {
     renderProducts(products.accessories, accessoriesGrid);
 
     const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-    cartCountElement.textContent = totalCount;
+    cartCountElements.forEach(el => {
+        el.textContent = totalCount;
+        el.style.display = totalCount > 0 ? 'flex' : 'none';
+    });
     
     const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     cartTotalElement.textContent = '$' + totalPrice.toFixed(2);
@@ -284,13 +294,30 @@ function showToast(message) {
 
 
 function setupEventListeners() {
+    // Hamburger Menu Handle
+    if(hamburger) {
+        hamburger.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+        });
+    }
+
     // Open Modals
-    cartIcon.addEventListener('click', () => openModal(cartModal));
+    desktopCartIcon.addEventListener('click', () => openModal(cartModal));
+    mobileCartIcon.addEventListener('click', () => openModal(cartModal));
     
     ordersIcon.addEventListener('click', () => {
         renderOrders();
         openModal(ordersModal);
     });
+
+    if(mobileOrdersIcon) {
+        mobileOrdersIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            navLinksContainer.classList.remove('active');
+            renderOrders();
+            openModal(ordersModal);
+        });
+    }
     
     // Auth Modal handling
     userIcon.addEventListener('click', () => {
@@ -468,6 +495,8 @@ function setupEventListeners() {
     document.querySelectorAll('.nav-links a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
+            navLinksContainer.classList.remove('active'); // Close mobile menu when link is clicked
+            
             const targetId = this.getAttribute('href');
             if(targetId === '#home') {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
