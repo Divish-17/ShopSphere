@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopSphere</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span>ShopSphere</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#phones">Phones</a></li>
+            <li><a href="#accessories">Accessories</a></li>
+        </ul>
+        <div class="nav-icons">
+            <div class="orders-icon" id="orders-icon" style="display: none;" title="My Orders">
+                <i class="fas fa-box-open"></i>
+            </div>
+            <div class="cart-icon" id="cart-icon" title="Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+            <div class="user-icon" id="user-icon" title="Login">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <div class="badge"><i class="fas fa-meteor"></i> ShopSphere Exclusive</div>
+            <h1>The Ultimate<br><span class="gradient-text">Tech Experience</span></h1>
+            <p>Discover the latest flagship smartphones and premium accessories designed to elevate your everyday digital life.</p>
+            <div class="hero-buttons">
+                <button class="cta-btn primary" onclick="document.getElementById('phones').scrollIntoView({behavior: 'smooth'})">Shop Smartphones</button>
+                <button class="cta-btn secondary" onclick="document.getElementById('accessories').scrollIntoView({behavior: 'smooth'})">View Accessories</button>
+            </div>
+        </div>
+        <div class="hero-image-wrapper">
+            <div class="blob-bg"></div>
+            <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?q=80&w=1000&auto=format&fit=crop" alt="Premium Smartphone" class="floating-img">
+        </div>
+    </header>
+
+    <main>
+        <section id="phones" class="category-section">
+            <div class="section-header">
+                <h2>Flagship Smartphones</h2>
+                <div class="line"></div>
+            </div>
+            <div class="product-grid" id="phones-grid">
+                <!-- Phone products injected here -->
+            </div>
+        </section>
+
+        <section id="accessories" class="category-section">
+            <div class="section-header">
+                <h2>Premium Accessories</h2>
+                <div class="line"></div>
+            </div>
+            <div class="product-grid" id="accessories-grid">
+                <!-- Accessory products injected here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <!-- Cart Modal -->
+    <div class="modal-overlay" id="cart-modal">
+        <div class="modal-content cart-modal-content">
+            <div class="modal-header">
+                <h2>Your Cart</h2>
+                <button class="close-btn" id="close-cart"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items injected here -->
+                <div class="empty-cart-message">Your cart is empty.</div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total-price">$0.00</span>
+                </div>
+                <button class="checkout-btn" id="checkout-btn" disabled>Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Orders Modal -->
+    <div class="modal-overlay" id="orders-modal">
+        <div class="modal-content cart-modal-content">
+            <div class="modal-header">
+                <h2>Order History</h2>
+                <button class="close-btn" id="close-orders"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cart-items" id="orders-list">
+                <!-- Orders injected here -->
+                <div class="empty-cart-message">No orders found.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="modal-overlay" id="auth-modal">
+        <div class="modal-content auth-modal-content">
+            <div class="modal-header">
+                <h2 id="auth-title">Login</h2>
+                <button class="close-btn" id="close-auth"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="auth-form" class="auth-form">
+                <div class="form-group" id="name-group" style="display: none;">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="submit-btn" id="auth-submit">Login</button>
+                <div class="auth-switch">
+                    <span id="auth-switch-text">Don't have an account?</span>
+                    <a href="#" id="auth-switch-link">Sign up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkout-modal">
+        <div class="modal-content auth-modal-content">
+            <div class="modal-header">
+                <h2>Checkout</h2>
+                <button class="close-btn" id="close-checkout"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="payment-form" class="auth-form">
+                <div class="form-group">
+                    <label for="payment-method">Payment Method</label>
+                    <select id="payment-method" class="form-select" required>
+                        <option value="card">Credit / Debit Card</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="cod">Cash on Delivery</option>
+                    </select>
+                </div>
+
+                <div id="card-details">
+                    <div class="form-group">
+                        <label for="card-name">Name on Card</label>
+                        <input type="text" id="card-name" placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" placeholder="0000 0000 0000 0000">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="card-exp">Expiry</label>
+                            <input type="text" id="card-exp" placeholder="MM/YY">
+                        </div>
+                        <div class="form-group half">
+                            <label for="card-cvv">CVV</label>
+                            <input type="text" id="card-cvv" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="paypal-details"
+                    style="display: none; text-align: center; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                    You will be redirected to PayPal to complete your purchase securely.
+                </div>
+
+                <div id="cod-details"
+                    style="display: none; text-align: center; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                    Pay with cash when your premium mobile gear is delivered.
+                </div>
+
+                <button type="submit" class="submit-btn" id="pay-btn">Place Order ($0.00)</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Success Modal -->
+    <div class="modal-overlay" id="success-modal">
+        <div class="modal-content auth-modal-content success-content">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h2>Order Placed Successfully!</h2>
+            <p>Your order <strong id="success-order-id"></strong> has been confirmed.</p>
+            <button class="submit-btn" id="close-success">Continue Shopping</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>NexTech</h3>
+                <p>The premier destination for cutting-edge mobile technology and premium accessories.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#phones">Phones</a></li>
+                    <li><a href="#accessories">Accessories</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NexTech. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
