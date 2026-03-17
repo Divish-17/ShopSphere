@@ -23,6 +23,10 @@
             <li class="mobile-auth-link" style="display: none;"><a href="#" id="mobile-auth-icon">Login</a></li>
         </ul>
         <div class="nav-icons">
+            <div class="nav-search">
+                <i class="fas fa-search"></i>
+                <input type="text" id="nav-search-input" placeholder="Search products...">
+            </div>
             <div class="orders-icon" id="orders-icon" style="display: none;" title="My Orders">
                 <i class="fas fa-box-open"></i>
             </div>
@@ -101,10 +105,28 @@
                 <!-- Cart items injected here -->
                 <div class="empty-cart-message">Your cart is empty.</div>
             </div>
-            <div class="cart-footer">
-                <div class="cart-total">
-                    <span>Total:</span>
-                    <span id="cart-total-price">$0.00</span>
+            <div class="cart-footer" style="flex-direction: column; align-items: stretch; gap: 1rem;">
+                <div class="promo-code-box">
+                    <input type="text" id="promo-code-input" placeholder="Promo code (e.g. SAVE10)">
+                    <button type="button" id="apply-promo-btn">Apply</button>
+                </div>
+                <div class="cart-summary">
+                    <div class="cart-summary-row">
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal-price">$0.00</span>
+                    </div>
+                    <div class="cart-summary-row" id="cart-discount-row" style="display: none; color: var(--success);">
+                        <span>Discount (<span id="discount-percent">0</span>%):</span>
+                        <span id="cart-discount-amount">-$0.00</span>
+                    </div>
+                    <div class="cart-summary-row">
+                        <span>Tax (10%):</span>
+                        <span id="cart-tax-price">$0.00</span>
+                    </div>
+                    <div class="cart-summary-row total-row">
+                        <span>Total:</span>
+                        <span id="cart-total-price">$0.00</span>
+                    </div>
                 </div>
                 <button class="checkout-btn" id="checkout-btn" disabled>Proceed to Checkout</button>
             </div>
