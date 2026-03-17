@@ -1,28 +1,38 @@
 // Product Data
 const products = {
     phones: [
-        { id: 'p1', name: 'iPhone 15 Pro Max', category: 'iOS', price: 1199.00, image: 'https://images.unsplash.com/photo-1696446701796-da61225697cc?q=80&w=800&auto=format&fit=crop' },
-        { id: 'p2', name: 'iPhone 15 Pro', category: 'iOS', price: 999.00, image: 'https://images.unsplash.com/photo-1696446700622-44672322472b?q=80&w=800&auto=format&fit=crop' },
-        { id: 'p3', name: 'iPhone 15', category: 'iOS', price: 799.00, image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?q=80&w=800&auto=format&fit=crop' },
-        { id: 'p4', name: 'iPhone 14 Pro', category: 'iOS', price: 899.00, image: 'https://images.unsplash.com/photo-1663465373099-2a945118ac28?q=80&w=800&auto=format&fit=crop' },
-        { id: 'p5', name: 'iPhone SE 3', category: 'iOS', price: 429.00, image: 'https://images.unsplash.com/photo-1591337676887-a4b7f032231db?q=80&w=800&auto=format&fit=crop' },
-        { id: 'p6', name: 'iPhone 13', category: 'iOS', price: 599.00, image: 'https://images.unsplash.com/photo-1632661674596-df8be070a5c5?q=80&w=800&auto=format&fit=crop' },
-        { id: 'p7', name: 'Samsung Galaxy S24 Ultra', category: 'Android', price: 1299.00, image: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?q=80&w=800&auto=format&fit=crop' },
-        { id: 'p8', name: 'Samsung Galaxy Z Fold 5', category: 'Android', price: 1799.00, image: 'https://images.unsplash.com/photo-1678911820864-e2c567c655d7?q=80&w=800&auto=format&fit=crop' },
-        { id: 'p9', name: 'Google Pixel 8 Pro', category: 'Android', price: 999.00, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?q=80&w=800&auto=format&fit=crop' },
-        { id: 'p10', name: 'OnePlus 12', category: 'Android', price: 799.00, image: 'https://images.unsplash.com/photo-1546054454-aa26e2b734c7?q=80&w=800&auto=format&fit=crop' },
-        { id: 'p11', name: 'Asus ROG Phone 8', category: 'Gaming', price: 1099.00, image: 'https://images.unsplash.com/photo-1605280263929-1c42c62ef169?q=80&w=800&auto=format&fit=crop' },
-        { id: 'p12', name: 'Xiaomi 14 Pro', category: 'Android', price: 899.00, image: 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=800&auto=format&fit=crop' }
+        { id: 'p1', name: 'iPhone 15 Pro Max', category: 'iOS', price: 1199, image: 'https://images.unsplash.com/photo-1734536420887-2faf07e9715f?q=80&w=687&auto=format&fit=crop' },
+        { id: 'p2', name: 'iPhone 15 Pro', category: 'iOS', price: 999, image: 'https://images.unsplash.com/photo-1709178295038-acbeec786fcf?q=80&w=627&auto=format&fit=crop' },
+        { id: 'p3', name: 'iPhone 15', category: 'iOS', price: 799, image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?q=80&w=800&auto=format&fit=crop' },
+        { id: 'p4', name: 'iPhone 14 Pro', category: 'iOS', price: 899, image: 'https://images.unsplash.com/photo-1670825988535-399aaf1c9113?q=80&w=687&auto=format&fit=crop' },
+        { id: 'p5', name: 'iPhone SE 3', category: 'iOS', price: 429, image: 'https://images.unsplash.com/photo-1670888233192-19584899faa3?q=80&w=627&auto=format&fit=crop' },
+        { id: 'p6', name: 'iPhone 13', category: 'iOS', price: 599, image: 'https://images.unsplash.com/photo-1632661674596-df8be070a5c5?q=80&w=800&auto=format&fit=crop' },
+        { id: 'p7', name: 'Samsung Galaxy S24 Ultra', category: 'Android', price: 1299, image: 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?q=80&w=800&auto=format&fit=crop' },
+        { id: 'p8', name: 'Samsung Galaxy Z Fold 5', category: 'Android', price: 1799, image: 'https://images.unsplash.com/photo-1678911820864-e2c567c655d7?q=80&w=800&auto=format&fit=crop' },
+        { id: 'p9', name: 'Google Pixel 8 Pro', category: 'Android', price: 999, image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?q=80&w=800&auto=format&fit=crop' },
+        { id: 'p10', name: 'OnePlus 12', category: 'Android', price: 799, image: 'https://images.unsplash.com/photo-1546054454-aa26e2b734c7?q=80&w=800&auto=format&fit=crop' },
+        { id: 'p11', name: 'Realme 11 Pro+', category: 'Android', price: 1099, image: 'https://images.unsplash.com/photo-1688986757418-f7b6e18a3407?q=80&w=1331&auto=format&fit=crop' },
+        { id: 'p12', name: 'Xiaomi Note 10 Lite', category: 'Android', price: 899, image: 'https://images.unsplash.com/photo-1591447337751-c7b95cf704ba?q=80&w=1044&auto=format&fit=crop' }
     ],
     accessories: [
-        { id: 'a1', name: 'AirPods Pro 2', category: 'Audio', price: 249.00, image: 'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?q=80&w=800&auto=format&fit=crop' },
-        { id: 'a2', name: 'MagSafe Wireless Charger', category: 'Charging', price: 39.00, image: 'https://images.unsplash.com/photo-1615526678601-26c39f0d46dd?q=80&w=800&auto=format&fit=crop' },
-        { id: 'a3', name: 'Apple Watch Series 9', category: 'Wearables', price: 399.00, image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?q=80&w=800&auto=format&fit=crop' },
-        { id: 'a4', name: 'Sony WH-1000XM5', category: 'Audio', price: 398.00, image: 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?q=80&w=800&auto=format&fit=crop' },
-        { id: 'a5', name: 'Galaxy Buds 2 Pro', category: 'Audio', price: 199.00, image: 'https://images.unsplash.com/photo-1606220588913-b3aecb3b0d23?q=80&w=800&auto=format&fit=crop' },
-        { id: 'a6', name: 'Anker PowerBank 20K', category: 'Charging', price: 59.00, image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?q=80&w=800&auto=format&fit=crop' },
-        { id: 'a7', name: 'Galaxy Watch 6 Classic', category: 'Wearables', price: 349.00, image: 'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?q=80&w=800&auto=format&fit=crop' },
-        { id: 'a8', name: 'Bose QuietComfort Earbuds', category: 'Audio', price: 279.00, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=800&auto=format&fit=crop' }
+        { id: 'a1', name: 'AirPods Pro 2', category: 'Audio', price: 249, image: 'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?q=80&w=800&auto=format&fit=crop' },
+        { id: 'a2', name: 'MagSafe Wireless Charger', category: 'Charging', price: 39, image: 'https://images.unsplash.com/photo-1603674554159-b62f6febbce5?q=80&w=1170&auto=format&fit=crop' },
+        { id: 'a3', name: 'Apple Watch Series 9', category: 'Wearables', price: 399, image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?q=80&w=800&auto=format&fit=crop' },
+        { id: 'a4', name: 'Sony WH-1000XM5', category: 'Audio', price: 398, image: 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?q=80&w=800&auto=format&fit=crop' },
+        { id: 'a5', name: 'Galaxy Buds 2 Pro', category: 'Audio', price: 199, image: 'https://images.unsplash.com/photo-1705825859831-1fc8459c2d9c?q=80&w=1202&auto=format&fit=crop' },
+        { id: 'a6', name: 'Anker PowerBank 20K', category: 'Charging', price: 59, image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?q=80&w=800&auto=format&fit=crop' },
+        { id: 'a7', name: 'Galaxy Watch 6 Classic', category: 'Wearables', price: 349, image: 'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?q=80&w=800&auto=format&fit=crop' },
+        { id: 'a8', name: 'Bose QuietComfort Earbuds', category: 'Audio', price: 279, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=800&auto=format&fit=crop' }
+    ],
+    laptops: [
+        { id: 'l1', name: 'MacBook Pro 16"', category: 'Apple', price: 2499, image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop' },
+        { id: 'l2', name: 'MacBook Pro 15"', category: 'Apple', price: 2099, image: 'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?q=80&w=1170&auto=format&fit=crop' },
+        { id: 'l3', name: 'Dell XPS 15', category: 'Windows', price: 1499, image: 'https://images.unsplash.com/photo-1558864559-ed673ba3610b?q=80&w=1332&auto=format&fit=crop' },
+        { id: 'l4', name: 'Dell XPS 14', category: 'Windows', price: 1299, image: 'https://images.unsplash.com/photo-1593642532744-d377ab507dc8?q=80&w=1169&auto=format&fit=crop' },
+        { id: 'l5', name: 'HP OmniBook 5 OLED', category: 'Windows', price: 1599, image: 'https://images.unsplash.com/photo-1663354027456-ce6a7e07d212?q=80&w=1074&auto=format&fit=crop' },
+        { id: 'l6', name: 'HP Pavilion Plus', category: 'Windows', price: 1399, image: 'https://images.unsplash.com/photo-1618410325698-018bb3eb2318?q=80&w=687&auto=format&fit=crop' },
+        { id: 'l7', name: 'ASUS TUF A15', category: 'Windows', price: 1899, image: 'https://images.unsplash.com/photo-1698512475067-74ed7c956c8d?q=80&w=687&auto=format&fit=crop' },
+        { id: 'l8', name: 'ASUS Zenbook 14', category: 'Windows', price: 1499, image: 'https://images.unsplash.com/photo-1636211990414-8edec17ba047?q=80&w=687&auto=format&fit=crop' },
     ]
 };
 
@@ -38,12 +48,14 @@ let currentDiscountPercent = 0;
 // DOM Elements
 const phonesGrid = document.getElementById('phones-grid');
 const accessoriesGrid = document.getElementById('accessories-grid');
+const laptopsGrid = document.getElementById('laptops-grid');
 const hamburger = document.getElementById('hamburger');
 const navLinksContainer = document.querySelector('.nav-links');
 
 // Modals
 const cartModal = document.getElementById('cart-modal');
 const authModal = document.getElementById('auth-modal');
+const addressModal = document.getElementById('address-modal');
 const checkoutModal = document.getElementById('checkout-modal');
 const successModal = document.getElementById('success-modal');
 const ordersModal = document.getElementById('orders-modal');
@@ -51,6 +63,7 @@ const ordersModal = document.getElementById('orders-modal');
 // Close Buttons
 const closeCart = document.getElementById('close-cart');
 const closeAuth = document.getElementById('close-auth');
+const closeAddress = document.getElementById('close-address');
 const closeCheckout = document.getElementById('close-checkout');
 const closeSuccess = document.getElementById('close-success');
 const closeOrders = document.getElementById('close-orders');
@@ -83,6 +96,7 @@ const nameGroup = document.getElementById('name-group');
 const authForm = document.getElementById('auth-form');
 
 // Checkout elements
+const addressForm = document.getElementById('address-form');
 const paymentForm = document.getElementById('payment-form');
 const paymentMethodSelect = document.getElementById('payment-method');
 const cardDetails = document.getElementById('card-details');
@@ -117,7 +131,7 @@ function validateInput(input) {
         clearValidationError(input);
         return true;
     }
-    
+
     if (!input.validity.valid) {
         let message = input.validationMessage;
         if (input.validity.valueMissing) {
@@ -156,10 +170,12 @@ function init() {
     updateAuthUI();
     renderProducts(products.phones, phonesGrid);
     renderProducts(products.accessories, accessoriesGrid);
-    updateCartUI(); 
+    renderProducts(products.laptops, laptopsGrid);
+    updateCartUI();
     setupEventListeners();
-    
+
     setupFormValidation(authForm);
+    setupFormValidation(addressForm);
     setupFormValidation(paymentForm);
 }
 
@@ -168,23 +184,24 @@ function updateAuthUI() {
         userIcon.innerHTML = `<i class="fas fa-sign-out-alt"></i><span style="font-size: 0.8rem; margin-left:5px; font-weight:600;" class="logout-text">Logout</span>`;
         userIcon.title = "Logout " + currentUser.name;
         ordersIcon.style.display = 'inline-flex'; // Show orders icon
-        if(mobileOrdersLink) mobileOrdersLink.style.display = 'block';
-        if(mobileAuthIcon) mobileAuthIcon.innerHTML = 'Logout';
-        if(mobileAuthLink) mobileAuthLink.style.display = 'block';
+        
+        if (mobileOrdersLink) mobileOrdersLink.style.display = 'block';
+        if (mobileAuthIcon) mobileAuthIcon.innerHTML = 'Logout';
+        if (mobileAuthLink) mobileAuthLink.style.display = 'block';
     } else {
         userIcon.innerHTML = `<i class="fas fa-user"></i>`;
         userIcon.title = "Login";
         ordersIcon.style.display = 'none'; // Hide orders icon
-        if(mobileOrdersLink) mobileOrdersLink.style.display = 'none';
-        if(mobileAuthIcon) mobileAuthIcon.innerHTML = 'Login';
-        if(mobileAuthLink) mobileAuthLink.style.display = 'block';
+        if (mobileOrdersLink) mobileOrdersLink.style.display = 'none';
+        if (mobileAuthIcon) mobileAuthIcon.innerHTML = 'Login';
+        if (mobileAuthLink) mobileAuthLink.style.display = 'block';
     }
 }
 
 function renderProducts(productList, container) {
     container.innerHTML = productList.map(item => {
         const cartItem = cart.find(c => c.id === item.id);
-        
+
         let controlsButton = '';
         if (cartItem) {
             controlsButton = `
@@ -201,7 +218,7 @@ function renderProducts(productList, container) {
                 </button>
             `;
         }
-        
+
         return `
             <div class="product-card">
                 <div class="product-image">
@@ -211,7 +228,7 @@ function renderProducts(productList, container) {
                     <div class="product-category">${item.category}</div>
                     <h3 class="product-title">${item.name}</h3>
                     <div class="product-footer">
-                        <span class="product-price">$${item.price.toFixed(2)}</span>
+                        <span class="product-price">$${item.price}</span>
                         ${controlsButton}
                     </div>
                 </div>
@@ -222,9 +239,9 @@ function renderProducts(productList, container) {
 
 
 // Cart Logic
-window.addToCart = function(id, name, price, image) {
+window.addToCart = function (id, name, price, image) {
     const existingItem = cart.find(item => item.id === id);
-    if(existingItem) {
+    if (existingItem) {
         existingItem.quantity += 1;
     } else {
         cart.push({ id, name, price, image, quantity: 1 });
@@ -237,10 +254,75 @@ function updateCartUI() {
     // Save to local storage
     localStorage.setItem('cart', JSON.stringify(cart));
 
-    // Update product cards based on search term
-    const filteredPhones = currentSearchTerm ? products.phones.filter(p => p.name.toLowerCase().includes(currentSearchTerm) || p.category.toLowerCase().includes(currentSearchTerm)) : products.phones;
-    const filteredAccessories = currentSearchTerm ? products.accessories.filter(p => p.name.toLowerCase().includes(currentSearchTerm) || p.category.toLowerCase().includes(currentSearchTerm)) : products.accessories;
+   const phonesSection = document.getElementById('phones');
+const accessoriesSection = document.getElementById('accessories');
+const laptopsSection = document.getElementById('laptops');
+const heroSection = document.getElementById('home');
 
+phonesSection.style.display = 'block';
+accessoriesSection.style.display = 'block';
+laptopsSection.style.display = 'block';
+if (heroSection) heroSection.style.display = 'flex';
+
+let filteredPhones = products.phones;
+let filteredAccessories = products.accessories;
+let filteredLaptops = products.laptops;
+
+if (currentSearchTerm) {
+    if (heroSection) heroSection.style.display = 'none';
+    const term = currentSearchTerm.toLowerCase();
+
+    const isLaptopSearch = term.includes('laptop');
+    const isPhoneSearch = term.includes('phone') || term.includes('iphone') || term.includes('android');
+    const isAccessorySearch = term.includes('airpods') || term.includes('watch') || term.includes('buds') || term.includes('charger');
+
+    // Hide all sections initially
+    phonesSection.style.display = 'none';
+    accessoriesSection.style.display = 'none';
+    laptopsSection.style.display = 'none';
+
+    // Check category-specific search
+    if (isLaptopSearch) {
+        laptopsSection.style.display = 'block';
+        filteredLaptops = products.laptops.filter(p => p.name.toLowerCase().includes(term));
+    } else if (isPhoneSearch) {
+        phonesSection.style.display = 'block';
+        filteredPhones = products.phones.filter(p => p.name.toLowerCase().includes(term));
+    } else if (isAccessorySearch) {
+        accessoriesSection.style.display = 'block';
+        filteredAccessories = products.accessories.filter(p => p.name.toLowerCase().includes(term));
+    } else {
+        // General search: check all products
+        filteredPhones = products.phones.filter(p => p.name.toLowerCase().includes(term));
+        filteredAccessories = products.accessories.filter(p => p.name.toLowerCase().includes(term));
+        filteredLaptops = products.laptops.filter(p => p.name.toLowerCase().includes(term));
+    }
+
+    // Render single product if there's exactly one match
+    const allFiltered = [...filteredPhones, ...filteredAccessories, ...filteredLaptops];
+    if (allFiltered.length === 1) {
+        const singleProduct = allFiltered[0];
+
+        // Hide all sections
+        phonesSection.style.display = 'none';
+        accessoriesSection.style.display = 'none';
+        laptopsSection.style.display = 'none';
+
+        // Show single product section
+        const singleProductSection = document.getElementById('single-product');
+        if (singleProductSection) {
+            singleProductSection.innerHTML = `
+                <h2>${singleProduct.name}</h2>
+                <p>${singleProduct.description}</p>
+                <p>Price: $${singleProduct.price}</p>
+                <img src="${singleProduct.image}" alt="${singleProduct.name}" />
+            `;
+            singleProductSection.style.display = 'block';
+        }
+    }
+}
+
+    renderProducts(filteredLaptops, laptopsGrid);
     renderProducts(filteredPhones, phonesGrid);
     renderProducts(filteredAccessories, accessoriesGrid);
 
@@ -249,7 +331,7 @@ function updateCartUI() {
         el.textContent = totalCount;
         el.style.display = totalCount > 0 ? 'flex' : 'none';
     });
-    
+
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     const discountAmount = subtotal * (currentDiscountPercent / 100);
     const taxAmount = (subtotal - discountAmount) * 0.10;
@@ -259,7 +341,7 @@ function updateCartUI() {
     if (document.getElementById('cart-subtotal-price')) {
         document.getElementById('cart-subtotal-price').textContent = '$' + subtotal.toFixed(2);
         document.getElementById('cart-tax-price').textContent = '$' + taxAmount.toFixed(2);
-        
+
         const discountRow = document.getElementById('cart-discount-row');
         if (currentDiscountPercent > 0) {
             document.getElementById('discount-percent').textContent = currentDiscountPercent;
@@ -271,7 +353,7 @@ function updateCartUI() {
     }
 
     cartTotalElement.textContent = '$' + totalPrice.toFixed(2);
-    
+
     // Update Checkout Button with Price
     payBtn.textContent = `Place Order ($${totalPrice.toFixed(2)})`;
 
@@ -280,9 +362,9 @@ function updateCartUI() {
         proceedToCheckoutBtn.disabled = true;
         return;
     }
-    
+
     proceedToCheckoutBtn.disabled = false;
-    
+
     cartItemsContainer.innerHTML = cart.map(item => `
         <div class="cart-item">
             <img src="${item.image}" alt="${item.name}">
@@ -300,18 +382,18 @@ function updateCartUI() {
     `).join('');
 }
 
-window.changeQty = function(id, delta) {
+window.changeQty = function (id, delta) {
     const item = cart.find(i => i.id === id);
-    if(item) {
+    if (item) {
         item.quantity += delta;
-        if(item.quantity <= 0) {
+        if (item.quantity <= 0) {
             cart = cart.filter(i => i.id !== id);
         }
     }
     updateCartUI();
 }
 
-window.removeItem = function(id) {
+window.removeItem = function (id) {
     cart = cart.filter(item => item.id !== id);
     updateCartUI();
 }
@@ -319,14 +401,14 @@ window.removeItem = function(id) {
 // Order History Logic
 function renderOrders() {
     if (!currentUser) return;
-    
+
     const userOrders = orders.filter(o => o.userEmail === currentUser.email);
-    
+
     if (userOrders.length === 0) {
         ordersList.innerHTML = '<div class="empty-cart-message">No orders found.</div>';
         return;
     }
-    
+
     // Sort newest to oldest
     userOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
 
@@ -344,15 +426,57 @@ function renderOrders() {
                     </div>
                 `).join('')}
             </div>
-            <div style="width: 100%; text-align: right; margin-top: 0.5rem; font-weight: bold; color: var(--primary);">
-                Total: $${order.total.toFixed(2)}
+            ${order.address && order.address.line ? `
+            <div style="width: 100%; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px dashed var(--border-dark); font-size: 0.8rem; color: var(--text-secondary);">
+                <strong style="color: var(--text-primary);">Shipping To:</strong><br>
+                ${order.address.name}<br>
+                ${order.address.line}<br>
+                ${order.address.city}, ${order.address.zip}
             </div>
-            <div style="font-size: 0.75rem; margin-top: 4px; color: var(--success);">
-                Paid via ${order.paymentMethod.toUpperCase()}
+            ` : ''}
+            <div style="width: 100%; display: flex; justify-content: space-between; align-items: flex-end; margin-top: 0.5rem;">
+                <div>
+                    <div style="font-weight: bold; color: var(--primary);">Total: $${order.total.toFixed(2)}</div>
+                    <div style="font-size: 0.75rem; margin-top: 4px; color: var(--success);">Paid via ${order.paymentMethod.toUpperCase()}</div>
+                    <div style="font-size: 0.75rem; margin-top: 4px; color: var(--text-secondary);">Status: <span style="color: var(--primary); font-weight: bold;">${order.status || 'Processing'}</span></div>
+                </div>
+                ${(order.status !== 'Cancelled') ? `<button onclick="cancelOrder('${order.orderId}')" style="background: rgba(243, 139, 168, 0.1); color: var(--error); border: 1px solid rgba(243, 139, 168, 0.3); padding: 6px 12px; border-radius: 8px; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.3s ease;">Cancel Order</button>` : `<span style="color: var(--error); font-weight: bold; font-size: 0.85rem;">Order Cancelled</span>`}
             </div>
+            <button onclick="deleteOrder('${order.orderId}')" 
+        style="background: rgba(255,0,0,0.1); color: red; border: 1px solid red; padding: 6px 12px; border-radius: 8px; cursor: pointer;">
+        Delete
+    </button>
         </div>
     `).join('');
 }
+
+window.cancelOrder = function (orderId) {
+    if (confirm('Are you sure you want to cancel this order?')) {
+        const order = orders.find(o => o.orderId === orderId);
+        if (order) {
+            order.status = 'Cancelled';
+            localStorage.setItem('orders', JSON.stringify(orders));
+            renderOrders();
+            showToast('Order cancelled successfully.');
+        }
+    }
+};
+
+window.deleteOrder = function (orderId) {
+    if (confirm("Are you sure you want to delete this order permanently?")) {
+
+        // Remove from array
+        orders = orders.filter(o => o.orderId !== orderId);
+
+        // Update localStorage
+        localStorage.setItem('orders', JSON.stringify(orders));
+
+        // Re-render UI
+        renderOrders();
+
+        showToast("Order deleted successfully");
+    }
+};
 
 // Modal Toggle Logic
 function openModal(modal) {
@@ -376,9 +500,9 @@ function showToast(message) {
     toast.style.zIndex = '3000';
     toast.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
     toast.textContent = message;
-    
+
     document.body.appendChild(toast);
-    
+
     setTimeout(() => {
         toast.style.opacity = '0';
         toast.style.transition = 'opacity 0.5s ease';
@@ -390,10 +514,34 @@ function showToast(message) {
 function setupEventListeners() {
     // Search Feature
     const searchInput = document.getElementById('nav-search-input');
+    const searchIcon = document.getElementById('mobile-search-icon');
+    const searchContainer = document.getElementById('nav-search-container');
+
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             currentSearchTerm = e.target.value.toLowerCase().trim();
             updateCartUI(); // re-renders products
+        });
+    }
+
+    if (searchIcon && searchContainer) {
+        searchIcon.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                searchContainer.classList.toggle('active');
+                if (searchContainer.classList.contains('active')) {
+                    searchInput.focus();
+                }
+            }
+        });
+
+        // Close search when clicking outside
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && searchContainer.classList.contains('active')) {
+                if (!searchContainer.contains(e.target)) {
+                    searchContainer.classList.remove('active');
+                }
+            }
         });
     }
 
@@ -417,7 +565,7 @@ function setupEventListeners() {
     }
 
     // Hamburger Menu Handle
-    if(hamburger) {
+    if (hamburger) {
         hamburger.addEventListener('click', () => {
             navLinksContainer.classList.toggle('active');
         });
@@ -426,13 +574,13 @@ function setupEventListeners() {
     // Open Modals
     desktopCartIcon.addEventListener('click', () => openModal(cartModal));
     mobileCartIcon.addEventListener('click', () => openModal(cartModal));
-    
+
     ordersIcon.addEventListener('click', () => {
         renderOrders();
         openModal(ordersModal);
     });
 
-    if(mobileOrdersIcon) {
+    if (mobileOrdersIcon) {
         mobileOrdersIcon.addEventListener('click', (e) => {
             e.preventDefault();
             navLinksContainer.classList.remove('active');
@@ -440,7 +588,7 @@ function setupEventListeners() {
             openModal(ordersModal);
         });
     }
-    
+
     // Shared logout logic
     function handleLogout() {
         currentUser = null;
@@ -459,7 +607,7 @@ function setupEventListeners() {
         }
     });
 
-    if(mobileAuthIcon) {
+    if (mobileAuthIcon) {
         mobileAuthIcon.addEventListener('click', (e) => {
             e.preventDefault();
             navLinksContainer.classList.remove('active');
@@ -477,31 +625,53 @@ function setupEventListeners() {
             showToast("Please login or sign up to proceed to checkout!");
             openModal(authModal);
         } else {
-            openModal(checkoutModal);
+            openModal(addressModal);
         }
     });
-    
+
+    addressForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
+        addressForm.querySelectorAll('input').forEach(input => {
+            if (!validateInput(input)) isValid = false;
+        });
+        if (!isValid) return;
+
+        const addressDetails = {
+            name: document.getElementById('address-name').value,
+            line: document.getElementById('address-line').value,
+            city: document.getElementById('address-city').value,
+            zip: document.getElementById('address-zip').value
+        };
+        localStorage.setItem('tempAddress', JSON.stringify(addressDetails));
+
+        closeModal(addressModal);
+        openModal(checkoutModal);
+    });
+
     // Close Modals
     closeCart.addEventListener('click', () => closeModal(cartModal));
     closeAuth.addEventListener('click', () => closeModal(authModal));
+    closeAddress.addEventListener('click', () => closeModal(addressModal));
     closeCheckout.addEventListener('click', () => closeModal(checkoutModal));
     closeSuccess.addEventListener('click', () => closeModal(successModal));
     closeOrders.addEventListener('click', () => closeModal(ordersModal));
-    
+
     // Close on Outside Click
     window.addEventListener('click', (e) => {
-        if(e.target === cartModal) closeModal(cartModal);
-        if(e.target === authModal) closeModal(authModal);
-        if(e.target === checkoutModal) closeModal(checkoutModal);
-        if(e.target === successModal) closeModal(successModal);
-        if(e.target === ordersModal) closeModal(ordersModal);
+        if (e.target === cartModal) closeModal(cartModal);
+        if (e.target === authModal) closeModal(authModal);
+        if (e.target === addressModal) closeModal(addressModal);
+        if (e.target === checkoutModal) closeModal(checkoutModal);
+        if (e.target === successModal) closeModal(successModal);
+        if (e.target === ordersModal) closeModal(ordersModal);
     });
-    
+
     // Auth Switch
     authSwitchLink.addEventListener('click', (e) => {
         e.preventDefault();
         isLogin = !isLogin;
-        if(isLogin) {
+        if (isLogin) {
             authTitle.textContent = 'Login';
             nameGroup.style.display = 'none';
             document.getElementById('name').removeAttribute('required');
@@ -521,7 +691,7 @@ function setupEventListeners() {
     // Authentication Forms Prevent Default
     authForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         let isValid = true;
         authForm.querySelectorAll('input:not([disabled])').forEach(input => {
             if (!validateInput(input)) isValid = false;
@@ -530,7 +700,7 @@ function setupEventListeners() {
 
         const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value.trim();
-        
+
         if (isLogin) {
             const user = users.find(u => u.email === email && u.password === password);
             if (user) {
@@ -552,10 +722,10 @@ function setupEventListeners() {
             const newUser = { name, email, password };
             users.push(newUser);
             localStorage.setItem('users', JSON.stringify(users));
-            
+
             currentUser = newUser;
             localStorage.setItem('currentUser', JSON.stringify(currentUser));
-            
+
             closeModal(authModal);
             showToast("Account created successfully!");
             updateAuthUI();
@@ -567,7 +737,7 @@ function setupEventListeners() {
     paymentMethodSelect.addEventListener('change', (e) => {
         const method = e.target.value;
         const inputs = cardDetails.querySelectorAll('input');
-        
+
         if (method === 'card') {
             cardDetails.style.display = 'block';
             paypalDetails.style.display = 'none';
@@ -600,7 +770,7 @@ function setupEventListeners() {
     // Payment Form Submission
     paymentForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         let isValid = true;
         paymentForm.querySelectorAll('input:not([disabled]), select:not([disabled])').forEach(input => {
             if (!validateInput(input)) isValid = false;
@@ -610,71 +780,75 @@ function setupEventListeners() {
         const btn = payBtn;
         const originalText = btn.textContent;
         const method = paymentMethodSelect.value;
-        
+
         btn.textContent = "Processing...";
         btn.disabled = true;
         btn.style.opacity = "0.7";
-        
+
         setTimeout(() => {
             btn.textContent = originalText;
             btn.disabled = false;
             btn.style.opacity = "1";
-            
+
             // Build Order Object
             const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             const discountAmount = subtotal * (currentDiscountPercent / 100);
             const taxAmount = (subtotal - discountAmount) * 0.10;
             const totalPrice = subtotal - discountAmount + taxAmount;
-            
+
             const orderId = Math.random().toString(36).substr(2, 9).toUpperCase();
-            
+
             const newOrder = {
                 orderId: orderId,
                 userEmail: currentUser.email,
                 items: [...cart],
                 total: totalPrice,
                 date: new Date().toISOString(),
-                paymentMethod: method
+                paymentMethod: method,
+                status: "Processing",
+                address: JSON.parse(localStorage.getItem('tempAddress')) || {}
             };
-            
+
             // Save order to history
             orders.push(newOrder);
             localStorage.setItem('orders', JSON.stringify(orders));
-            
+
             // Show Success Modal
             document.getElementById('success-order-id').textContent = orderId;
             closeModal(checkoutModal);
             openModal(successModal);
-            
+
             // Empty cart
-            cart = []; 
+            cart = [];
             updateCartUI();
             paymentForm.reset();
-            
+            addressForm.reset();
+            localStorage.removeItem('tempAddress');
+
             // Reset payment method visually to card default state just in case
             paymentMethodSelect.value = 'card';
             paymentMethodSelect.dispatchEvent(new Event('change'));
-            
+
         }, 1500);
     });
 
     // Smooth Scrolling for Navbar Links
     document.querySelectorAll('.nav-links a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
             navLinksContainer.classList.remove('active'); // Close mobile menu when link is clicked
-            
+
             const targetId = this.getAttribute('href');
-            if(targetId === '#home') {
+            if (targetId === '#home') {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
                 const targetElement = document.querySelector(targetId);
-                if(targetElement) {
+                if (targetElement) {
                     const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - 80;
                     window.scrollTo({ top: offsetTop, behavior: 'smooth' });
                 }
             }
-            
+
             // Update active state
             document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
             this.classList.add('active');
@@ -685,18 +859,18 @@ function setupEventListeners() {
     window.addEventListener('scroll', () => {
         let current = '';
         const sections = document.querySelectorAll('section, header');
-        
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            if(scrollY >= (sectionTop - 150)) {
+            if (scrollY >= (sectionTop - 150)) {
                 current = section.getAttribute('id');
             }
         });
 
         document.querySelectorAll('.nav-links a').forEach(a => {
             a.classList.remove('active');
-            if(a.getAttribute('href') === `#${current}`) {
+            if (a.getAttribute('href') === `#${current}`) {
                 a.classList.add('active');
             }
         });
