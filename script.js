@@ -32,6 +32,8 @@ let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let orders = JSON.parse(localStorage.getItem('orders')) || [];
 let isLogin = true;
+let currentSearchTerm = '';
+let currentDiscountPercent = 0;
 
 // DOM Elements
 const phonesGrid = document.getElementById('phones-grid');
@@ -235,9 +237,12 @@ function updateCartUI() {
     // Save to local storage
     localStorage.setItem('cart', JSON.stringify(cart));
 
-    // Update product cards
-    renderProducts(products.phones, phonesGrid);
-    renderProducts(products.accessories, accessoriesGrid);
+    // Update product cards based on search term
+    const filteredPhones = currentSearchTerm ? products.phones.filter(p => p.name.toLowerCase().includes(currentSearchTerm) || p.category.toLowerCase().includes(currentSearchTerm)) : products.phones;
+    const filteredAccessories = currentSearchTerm ? products.accessories.filter(p => p.name.toLowerCase().includes(currentSearchTerm) || p.category.toLowerCase().includes(currentSearchTerm)) : products.accessories;
+
+    renderProducts(filteredPhones, phonesGrid);
+    renderProducts(filteredAccessories, accessoriesGrid);
 
     const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
     cartCountElements.forEach(el => {
@@ -245,7 +250,26 @@ function updateCartUI() {
         el.style.display = totalCount > 0 ? 'flex' : 'none';
     });
     
-    const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const discountAmount = subtotal * (currentDiscountPercent / 100);
+    const taxAmount = (subtotal - discountAmount) * 0.10;
+    const totalPrice = subtotal - discountAmount + taxAmount;
+
+    // Update summary rows if they exist
+    if (document.getElementById('cart-subtotal-price')) {
+        document.getElementById('cart-subtotal-price').textContent = '$' + subtotal.toFixed(2);
+        document.getElementById('cart-tax-price').textContent = '$' + taxAmount.toFixed(2);
+        
+        const discountRow = document.getElementById('cart-discount-row');
+        if (currentDiscountPercent > 0) {
+            document.getElementById('discount-percent').textContent = currentDiscountPercent;
+            document.getElementById('cart-discount-amount').textContent = '-$' + discountAmount.toFixed(2);
+            discountRow.style.display = 'flex';
+        } else {
+            discountRow.style.display = 'none';
+        }
+    }
+
     cartTotalElement.textContent = '$' + totalPrice.toFixed(2);
     
     // Update Checkout Button with Price
@@ -364,6 +388,34 @@ function showToast(message) {
 
 
 function setupEventListeners() {
+    // Search Feature
+    const searchInput = document.getElementById('nav-search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            currentSearchTerm = e.target.value.toLowerCase().trim();
+            updateCartUI(); // re-renders products
+        });
+    }
+
+    // Promo Code Logic
+    const applyPromoBtn = document.getElementById('apply-promo-btn');
+    if (applyPromoBtn) {
+        applyPromoBtn.addEventListener('click', () => {
+            const promoInput = document.getElementById('promo-code-input').value.trim().toUpperCase();
+            if (promoInput === 'SAVE10') {
+                currentDiscountPercent = 10;
+                showToast("Promo code applied: 10% off!");
+            } else if (promoInput === 'SAVE20') {
+                currentDiscountPercent = 20;
+                showToast("Promo code applied: 20% off!");
+            } else {
+                currentDiscountPercent = 0;
+                showToast("Invalid promo code.");
+            }
+            updateCartUI();
+        });
+    }
+
     // Hamburger Menu Handle
     if(hamburger) {
         hamburger.addEventListener('click', () => {
@@ -569,7 +621,11 @@ function setupEventListeners() {
             btn.style.opacity = "1";
             
             // Build Order Object
-            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const discountAmount = subtotal * (currentDiscountPercent / 100);
+            const taxAmount = (subtotal - discountAmount) * 0.10;
+            const totalPrice = subtotal - discountAmount + taxAmount;
+            
             const orderId = Math.random().toString(36).substr(2, 9).toUpperCase();
             
             const newOrder = {
